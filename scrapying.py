@@ -64,25 +64,21 @@ if __name__ == '__main__':
     dir_for_keys = "keys_found"
     if not os.path.exists(dir_for_keys):
         os.makedirs(dir_for_keys)
-    if 1:
-        list = ["https://github.com/cbsd/reggae/blob/master/id_rsa",
-                "https://github.com/stefanprodan/AndroidDevLab/blob/master/ssh/id_rsa",
-                "https://github.com/stefanprodan/AndroidDevLab/blob/master/ssh/id_rsa",
-                "https://dbgroup.cdm.depaul.edu/SysGen/HostFiles/id_rsa",
-                "https://hxp.io/assets/data/posts/really_slow_arithmetic/id_rsa.good",
-                "https://github.com/cbsd/reggae/blob/master/id_rsa",
-                "https://apps.cpanel.net/threads/error-convert-the-id_rsa-key-to-ppk-format.686929/",
-                "https://repos.sakhaglobal.com/root/infowork/-/blob/c70afa09893523cede1bd87eb0512a503069afd1/aws/id_rsa"]
-        for element in list:
-            try:
-                response = requests.get(element)
-                soup = BeautifulSoup(response.content, "html.parser")
-                #print(soup.getText())
-                print(scrape_page(soup.getText()))
-            except Exception:
-                pass
-    else:
-        with open("test_html.txt", "r") as text:
-            soup = text.read()
-            text.close()
-        scrape_page(soup)
+    
+    list = ["https://github.com/cbsd/reggae/blob/master/id_rsa",
+            "https://github.com/stefanprodan/AndroidDevLab/blob/master/ssh/id_rsa",
+            "https://github.com/stefanprodan/AndroidDevLab/blob/master/ssh/id_rsa",
+            "https://dbgroup.cdm.depaul.edu/SysGen/HostFiles/id_rsa",
+            "https://hxp.io/assets/data/posts/really_slow_arithmetic/id_rsa.good",
+            "https://github.com/cbsd/reggae/blob/master/id_rsa",
+            "https://apps.cpanel.net/threads/error-convert-the-id_rsa-key-to-ppk-format.686929/",
+            "https://repos.sakhaglobal.com/root/infowork/-/blob/c70afa09893523cede1bd87eb0512a503069afd1/aws/id_rsa"]
+    for element in list:
+        try:
+            response = requests.get(element)
+            soup = BeautifulSoup(response.content, "html.parser")
+            #print(soup.getText())
+            print(scrape_page(soup.getText()))
+        except Exception:
+            pass
+    
